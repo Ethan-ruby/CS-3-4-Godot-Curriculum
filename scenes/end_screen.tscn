@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://21i3cu2xbovf"]
+
+[ext_resource type="Script" uid="uid://0rjf6qi5r7du" path="res://scripts/end_screen.gd" id="1_6e1uj"]
+[ext_resource type="Texture2D" uid="uid://b5541u3xjtkgt" path="res://assets/end screen.png" id="2_jc7ji"]
+
+[node name="end screen" type="Node2D"]
+script = ExtResource("1_6e1uj")
+
+[node name="EndScreen" type="Sprite2D" parent="."]
+position = Vector2(-0.49996018, 3.0517578e-05)
+scale = Vector2(8.526667, 7.56)
+texture = ExtResource("2_jc7ji")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Retry" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -607.0
+offset_top = -63.000004
+offset_right = -599.0
+offset_bottom = -34.256046
+scale = Vector2(48.740005, 8.280002)
+
+[node name="Quit" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 191.0
+offset_top = -68.0
+offset_right = 199.0
+offset_bottom = -39.256042
+scale = Vector2(48.740005, 8.280002)
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

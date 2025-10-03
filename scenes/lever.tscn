@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5p2ev4o8h7si"]
+[gd_scene load_steps=11 format=3 uid="uid://5p2ev4o8h7si"]
 
 [ext_resource type="Script" uid="uid://dk3xxdvkh1t5k" path="res://scripts/lever.gd" id="1_4kwec"]
 [ext_resource type="Texture2D" uid="uid://c6mq4sqfm73v5" path="res://assets/free-2d-top-down-pixel-dungeon-asset-pack/doors_lever_chest_animation.png" id="2_ncfea"]
@@ -23,6 +23,10 @@ region = Rect2(48, 176, 16, 16)
 atlas = ExtResource("2_ncfea")
 region = Rect2(64, 176, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncfea"]
+atlas = ExtResource("2_ncfea")
+region = Rect2(0, 180, 17, 12)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_igrgq"]
 animations = [{
 "frames": [{
@@ -42,7 +46,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_3flmr")
 }],
 "loop": false,
-"name": &"default",
+"name": &"opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncfea")
+}],
+"loop": true,
+"name": &"unswitched",
 "speed": 5.0
 }]
 
@@ -54,6 +66,9 @@ script = ExtResource("1_4kwec")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_igrgq")
+animation = &"unswitched"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jxk16")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
