@@ -1,7 +1,6 @@
 extends Area2D
 
-
-@export var Lever: bool = false;
+var level_switched = false;
 
 func play_animation(reverse: bool = false) -> void:
 	var speed: int
@@ -13,6 +12,6 @@ func play_animation(reverse: bool = false) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and level_switched == false:
 		$AnimatedSprite2D.play("opened")
-		Lever = true;
+		level_switched = true;

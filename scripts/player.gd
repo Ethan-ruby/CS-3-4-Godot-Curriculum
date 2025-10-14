@@ -44,15 +44,15 @@ func handle_sprite(direction: Vector2) -> void:
 		facing = direction
 	
 	if facing.y > 0:
-		animated_sprite.play(prefix + "_forward")
+		$Playerframes.play(prefix + "_forward")
 	elif facing.y < 0:
-		animated_sprite.play(prefix + "_backward")
+		$Playerframes.play(prefix + "_backward")
 	elif facing.x < 0:
-		animated_sprite.play(prefix + "_side")
-		animated_sprite.flip_h = true
+		$Playerframes.play(prefix + "_side")
+		$Playerframes.flip_h = true
 	elif facing.x > 0:
-		animated_sprite.play(prefix + "_side")
-		animated_sprite.flip_h = false
+		$Playerframes.play(prefix + "_side")
+		$Playerframes.flip_h = false
 
 func collect_pickup(_type : String, _amount : int):
 	if _type == "coin":
@@ -84,3 +84,7 @@ func die():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit(0)
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("quit game"):
+		get_tree().quit()

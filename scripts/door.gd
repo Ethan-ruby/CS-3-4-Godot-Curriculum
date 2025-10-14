@@ -1,12 +1,15 @@
 extends AnimatableBody2D
 @onready var lever: Area2D = $"../Lever"
-var is_open = true
+@onready var door = $"../Lever"
 
+var is_open = true
 
 func _process(delta):
 	leverDetect()
+	set_is_open()
 
-func set_is_open(is_open: bool) -> void:
+
+func set_is_open() -> void:
 	if is_open:
 		$AnimatedSprite2D.frame = 0
 		collision_layer = 1
@@ -18,4 +21,6 @@ func set_is_open(is_open: bool) -> void:
 
 
 func leverDetect():
-	pass
+	if lever != null:
+		if lever.level_switched == true:
+			is_open = false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://21i3cu2xbovf"]
 
 [ext_resource type="Script" uid="uid://0rjf6qi5r7du" path="res://scripts/end_screen.gd" id="1_6e1uj"]
-[ext_resource type="Texture2D" uid="uid://ddywhcuu5b5lw" path="res://Sprites/Death sreen.png" id="2_6e1uj"]
+[ext_resource type="Texture2D" uid="uid://cvc10bv8ltb00" path="res://Sprites/death_screen.png" id="2_6e1uj"]
 
 [node name="end screen" type="Node2D"]
 script = ExtResource("1_6e1uj")
@@ -10,23 +10,23 @@ script = ExtResource("1_6e1uj")
 
 [node name="Retry" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = -588.0
-offset_top = -23.0
-offset_right = -576.87976
-offset_bottom = 9.367142
+offset_left = -480.00003
+offset_top = -6.0
+offset_right = -472.00003
+offset_bottom = 10.908207
 scale = Vector2(48.740005, 8.280002)
 
 [node name="Quit" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 42.0
-offset_top = -20.000004
-offset_right = 53.099712
-offset_bottom = 12.608685
+offset_left = 105.079994
+offset_top = -9.0
+offset_right = 113.079994
+offset_bottom = 7.7874355
 scale = Vector2(48.740005, 8.280002)
 
-[node name="DeathSreen" type="Sprite2D" parent="."]
-position = Vector2(-1.000083, -1.0000248)
-scale = Vector2(8.5199995, 7.5799994)
+[node name="DeathScreen" type="Sprite2D" parent="."]
+position = Vector2(4.2796142e-05, -8.34465e-07)
+scale = Vector2(4.0000005, 4.222223)
 texture = ExtResource("2_6e1uj")
 
 [connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
