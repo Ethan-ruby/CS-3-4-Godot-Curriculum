@@ -5,13 +5,11 @@ class_name Player
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var move_speed: float = 200.0
-@export var maxHealth : int = 100
+@export var maxHealth : int = 4
 @export var health : int = maxHealth
 @export var coins : int = 0
 
-
 var facing: Vector2 = Vector2.ZERO
-
 
 func _ready():
 	print("Player is ready!")
@@ -35,7 +33,6 @@ func handle_movement():
 	velocity = direction * move_speed
 	move_and_slide()
 
-# BAD QUICK CODE MAYBE CHANGE
 func handle_sprite(direction: Vector2) -> void:
 	var prefix: String = "walk"
 	if direction == Vector2.ZERO:
@@ -60,12 +57,6 @@ func collect_pickup(_type : String, _amount : int):
 		print("Coins: " + str(coins))
 	elif _type == "health_potion":
 		change_health(_amount)
-		
-
-# TODO: Add character methods here (Lesson 2)
-
-# - level_up()
-# - attack()
 
 func change_health(_amount): 
 	health += _amount
@@ -88,3 +79,32 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit game"):
 		get_tree().quit()
+	
+	if health == 4:
+		$HealthBar.play("4")
+	if health == 3:
+		$HealthBar.play("3")
+	if health == 2:
+		$HealthBar.play("2")
+	if health == 1:
+		$HealthBar.play("1")
+	
+	if coins == 0:
+		$"coin frames".hide()
+	if coins == 1:
+		$"coin frames".show()
+		$"coin frames".play("1")
+	if coins == 2:
+		$"coin frames".play("2")
+	if coins == 3:
+		$"coin frames".play("3")
+	if coins == 4:
+		$"coin frames".play("4")
+	if coins == 5:
+		$"coin frames".play("5")
+	if coins == 6:
+		$"coin frames".play("6")
+	if coins == 7:
+		$"coin frames".play("7")
+	if coins == 8:
+		$"coin frames".play("8")
