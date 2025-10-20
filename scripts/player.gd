@@ -79,6 +79,8 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit game"):
 		get_tree().quit()
+	if Input.is_action_just_pressed("retart game"):
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 	if health == 4:
 		$HealthBar.play("4")

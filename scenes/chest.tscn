@@ -51,6 +51,8 @@ size = Vector2(18, 18)
 
 [node name="Chest" type="Area2D"]
 script = ExtResource("1_sy5e1")
+type = "coin"
+label = "chest"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 3)
@@ -58,5 +60,7 @@ sprite_frames = SubResource("SpriteFrames_ilhio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kg5gm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

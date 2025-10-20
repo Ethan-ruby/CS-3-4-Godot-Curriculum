@@ -1,25 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://clkh0aurm6cru"]
+[gd_scene load_steps=9 format=3 uid="uid://clkh0aurm6cru"]
 
-[ext_resource type="Script" path="res://scripts/spike.gd" id="1_h46uk"]
-[ext_resource type="Texture2D" uid="uid://r4i5vx01mf1n" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_1.png" id="2_q32dk"]
-[ext_resource type="Texture2D" uid="uid://cc0thdm6n3t3y" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_2.png" id="3_pnn4v"]
-[ext_resource type="Texture2D" uid="uid://de5tc4hisbwlh" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_3.png" id="4_4culv"]
-[ext_resource type="Texture2D" uid="uid://cbxr7xcoj4c2l" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/peaks/peaks_4.png" id="5_ir2l3"]
+[ext_resource type="Script" uid="uid://6sk823fmmntx" path="res://scripts/spike.gd" id="1_h46uk"]
+[ext_resource type="Texture2D" uid="uid://bcp818oshpdkv" path="res://Sprites/Spike trap.png" id="2_7a7y0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2mqm"]
+atlas = ExtResource("2_7a7y0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx2lw"]
+atlas = ExtResource("2_7a7y0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60m7a"]
+atlas = ExtResource("2_7a7y0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8th5"]
+atlas = ExtResource("2_7a7y0")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6yjvv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_4culv")
+"texture": SubResource("AtlasTexture_d2mqm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_ir2l3")
+"texture": SubResource("AtlasTexture_cx2lw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_pnn4v")
+"texture": SubResource("AtlasTexture_60m7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_q32dk")
+"texture": SubResource("AtlasTexture_b8th5")
 }],
 "loop": false,
 "name": &"default",
@@ -33,6 +46,7 @@ size = Vector2(16, 16)
 script = ExtResource("1_h46uk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5406685, 0.5297199)
 sprite_frames = SubResource("SpriteFrames_6yjvv")
 frame = 3
 
