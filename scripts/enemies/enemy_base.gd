@@ -16,13 +16,12 @@ func _on_detection_radius_body_entered(body: Node2D) -> void:
 	super._on_detection_radius_body_entered(body)
 	if body is Player:
 		is_hostile = true;
-		$AnimatedSprite2D.play("Agro")
-
+		$AnimatedSprite2D.modulate = Color(0.859, 0.401, 0.391, 1.0)
 func _on_detection_radius_body_exited(body: Node2D) -> void:
 	super._on_detection_radius_body_exited(body)
 	if body is Player:
 		is_hostile = false;
-		$AnimatedSprite2D.play("Idle")
+		$AnimatedSprite2D.modulate = Color(1,1,1)
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	if body is Player:

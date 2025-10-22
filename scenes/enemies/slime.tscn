@@ -1,48 +1,45 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6gaa4kprawy0"]
+[gd_scene load_steps=13 format=3 uid="uid://c6gaa4kprawy0"]
 
 [ext_resource type="Script" uid="uid://co5hnowm81a7y" path="res://scripts/enemies/enemy_base.gd" id="1_4h4y0"]
-[ext_resource type="Texture2D" uid="uid://cbe4duw0ifsey" path="res://Sprites/enemies/Evil slime.png" id="2_b58ev"]
-[ext_resource type="Texture2D" uid="uid://b7jmso0gfcgxl" path="res://Sprites/enemies/slime.png" id="3_ankfk"]
+[ext_resource type="Texture2D" uid="uid://c1kkeiejrw4av" path="res://Sprites/slime5.png" id="2_4h4y0"]
 [ext_resource type="PackedScene" uid="uid://l7oauc6tswy3" path="res://scenes/enemies/detection_radius.tscn" id="3_b58ev"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b58ev"]
 radius = 9.708244
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e12yk"]
-atlas = ExtResource("2_b58ev")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b58ev"]
+atlas = ExtResource("2_4h4y0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ankfk"]
+atlas = ExtResource("2_4h4y0")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e12yk"]
+atlas = ExtResource("2_4h4y0")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhme6"]
-atlas = ExtResource("2_b58ev")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("2_4h4y0")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uhx0m"]
-atlas = ExtResource("2_b58ev")
-region = Rect2(0, 32, 32, 32)
+atlas = ExtResource("2_4h4y0")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uxu4"]
-atlas = ExtResource("2_b58ev")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mdcui"]
-atlas = ExtResource("3_ankfk")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ikdmk"]
-atlas = ExtResource("3_ankfk")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjup5"]
-atlas = ExtResource("3_ankfk")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfyvu"]
-atlas = ExtResource("3_ankfk")
-region = Rect2(32, 32, 32, 32)
+atlas = ExtResource("2_4h4y0")
+region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uhx0m"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b58ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ankfk")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e12yk")
 }, {
@@ -56,24 +53,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7uxu4")
 }],
 "loop": true,
-"name": &"Agro",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mdcui")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ikdmk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jjup5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wfyvu")
-}],
-"loop": true,
-"name": &"Idle",
+"name": &"slime",
 "speed": 5.0
 }]
 
@@ -89,8 +69,8 @@ shape = SubResource("CircleShape2D_b58ev")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uhx0m")
-animation = &"Idle"
-autoplay = "Idle"
+animation = &"slime"
+autoplay = "slime"
 
 [node name="Detection Radius" parent="." instance=ExtResource("3_b58ev")]
 

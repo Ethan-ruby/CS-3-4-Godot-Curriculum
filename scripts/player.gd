@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-
+@onready var label: Label = $Coin/Label
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var move_speed: float = 200.0
@@ -82,6 +82,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("retart game"):
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
+	$Coin/Label.text = str(coins)
+	
 	if health == 4:
 		$HealthBar.play("4")
 	if health == 3:
@@ -90,23 +92,3 @@ func _process(delta: float) -> void:
 		$HealthBar.play("2")
 	if health == 1:
 		$HealthBar.play("1")
-	
-	if coins == 0:
-		$"coin frames".hide()
-	if coins == 1:
-		$"coin frames".show()
-		$"coin frames".play("1")
-	if coins == 2:
-		$"coin frames".play("2")
-	if coins == 3:
-		$"coin frames".play("3")
-	if coins == 4:
-		$"coin frames".play("4")
-	if coins == 5:
-		$"coin frames".play("5")
-	if coins == 6:
-		$"coin frames".play("6")
-	if coins == 7:
-		$"coin frames".play("7")
-	if coins == 8:
-		$"coin frames".play("8")

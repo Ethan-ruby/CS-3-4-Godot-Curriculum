@@ -8,6 +8,8 @@ size = Vector2(22, 11)
 
 [node name="Key" type="Area2D"]
 script = ExtResource("1_fttkb")
+type = "key"
+label = "chest"
 
 [node name="Key" type="Sprite2D" parent="."]
 texture = ExtResource("2_wy8tx")
@@ -15,3 +17,5 @@ texture = ExtResource("2_wy8tx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_brs3p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

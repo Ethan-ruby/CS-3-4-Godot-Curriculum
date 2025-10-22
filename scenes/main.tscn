@@ -59,7 +59,6 @@ position = Vector2(-204.5, -56.5)
 
 [node name="HealthPotion" parent="Tilemap/StuffOnTop" instance=ExtResource("6_tefeu")]
 position = Vector2(18, 17.5)
-amount = 5
 
 [node name="Coin" parent="Tilemap/StuffOnTop" instance=ExtResource("5_tbgi4")]
 position = Vector2(-255, 94)
@@ -72,14 +71,14 @@ position = Vector2(-183.5, 105)
 
 [node name="Chest" parent="Tilemap/StuffOnTop" instance=ExtResource("6_tipki")]
 position = Vector2(150, 29)
-type = "coin"
-label = "chest"
+amount = 50
 
 [node name="Torch4" parent="Tilemap/StuffOnTop" instance=ExtResource("7_o6xl0")]
 position = Vector2(-27, -147.5)
 
 [node name="Chest2" parent="Tilemap/StuffOnTop" instance=ExtResource("6_tipki")]
 position = Vector2(25, -164.5)
+amount = 50
 
 [node name="Coin2" parent="Tilemap/StuffOnTop" instance=ExtResource("5_tbgi4")]
 position = Vector2(-169, 93.5)
