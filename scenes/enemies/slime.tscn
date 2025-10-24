@@ -1,11 +1,33 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6gaa4kprawy0"]
+[gd_scene load_steps=21 format=3 uid="uid://c6gaa4kprawy0"]
 
 [ext_resource type="Script" uid="uid://co5hnowm81a7y" path="res://scripts/enemies/enemy_base.gd" id="1_4h4y0"]
-[ext_resource type="Texture2D" uid="uid://c1kkeiejrw4av" path="res://Sprites/slime5.png" id="2_4h4y0"]
+[ext_resource type="Texture2D" uid="uid://c1kkeiejrw4av" path="res://Sprites/enemies/slime5.png" id="2_4h4y0"]
+[ext_resource type="Texture2D" uid="uid://6tb3q26j643m" path="res://Sprites/enemies/slime5death (1).png" id="2_b58ev"]
 [ext_resource type="PackedScene" uid="uid://l7oauc6tswy3" path="res://scenes/enemies/detection_radius.tscn" id="3_b58ev"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b58ev"]
-radius = 9.708244
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdcui"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(0, 0, 42, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikdmk"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(42, 0, 42, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjup5"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(0, 35, 42, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfyvu"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(42, 35, 42, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at850"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(0, 70, 42, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbf5k"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(42, 70, 42, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b58ev"]
 atlas = ExtResource("2_4h4y0")
@@ -35,6 +57,29 @@ region = Rect2(32, 64, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mdcui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikdmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjup5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfyvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at850")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbf5k")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b58ev")
 }, {
 "duration": 1.0,
@@ -60,27 +105,45 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ankfk"]
 radius = 2.2125092
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4h4y0"]
+size = Vector2(19, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4h4y0"]
+radius = 4.1231055
+
 [node name="slime" type="CharacterBody2D"]
 script = ExtResource("1_4h4y0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 6)
-shape = SubResource("CircleShape2D_b58ev")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uhx0m")
-animation = &"slime"
+animation = &"death"
 autoplay = "slime"
 
 [node name="Detection Radius" parent="." instance=ExtResource("3_b58ev")]
+position = Vector2(1, 5)
 
 [node name="damage area" type="Area2D" parent="."]
+position = Vector2(1, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage area"]
-position = Vector2(1, 5)
+position = Vector2(-5.9604645e-08, 0)
 scale = Vector2(5.875682, 5.9827785)
 shape = SubResource("CircleShape2D_ankfk")
+
+[node name="damage radius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage radius"]
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_4h4y0")
+
+[node name="hit box" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_4h4y0")
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Detection Radius" to="." method="_on_detection_radius_body_entered"]
 [connection signal="body_exited" from="Detection Radius" to="." method="_on_detection_radius_body_exited"]
 [connection signal="body_entered" from="damage area" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_entered" from="damage radius" to="." method="_on_damage_radius_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

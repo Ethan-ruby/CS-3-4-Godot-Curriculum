@@ -92,3 +92,8 @@ func _process(delta: float) -> void:
 		$HealthBar.play("2")
 	if health == 1:
 		$HealthBar.play("1")
+
+func _on_animation_player_body_entered(body: Node2D) -> void:
+	if body is npc:
+		print("punch")
+		$Playerframes.play("punch")

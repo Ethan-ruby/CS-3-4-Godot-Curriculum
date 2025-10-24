@@ -3,7 +3,9 @@ extends npc
 class_name enemy
 
 @onready var sprite: Sprite2D = $Sprite2D
-@export var damage_amount: int = 1
+@export var damage_amount: int = -1
+
+
 
 func _ready() -> void:
 	super._ready()
@@ -27,3 +29,13 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if body.has_method("change_health"):
 			body.change_health(damage_amount)
+
+func _on_damage_radius_body_entered(body: Node2D) -> void:
+	if body is Player:
+		$Timer.start()
+		$AnimatedSprite2D.play("death")
+
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3tla2pcnhcdt"
-path="res://.godot/imported/coin.png-b7fabe76c61e67396a7c0402e221b540.ctex"
+uid="uid://bcp818oshpdkv"
+path="res://.godot/imported/Spike trap.png-4c900e9cfef60b148eb800b7fbfbc0cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/coin.png"
-dest_files=["res://.godot/imported/coin.png-b7fabe76c61e67396a7c0402e221b540.ctex"]
+source_file="res://Sprites/Npc/Spike trap.png"
+dest_files=["res://.godot/imported/Spike trap.png-4c900e9cfef60b148eb800b7fbfbc0cb.ctex"]
 
 [params]
 

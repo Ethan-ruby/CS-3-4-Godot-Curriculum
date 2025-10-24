@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://21i3cu2xbovf"]
 
 [ext_resource type="Script" uid="uid://0rjf6qi5r7du" path="res://scripts/end_screen.gd" id="1_6e1uj"]
-[ext_resource type="Texture2D" uid="uid://cvc10bv8ltb00" path="res://Sprites/death_screen.png" id="2_6e1uj"]
+[ext_resource type="Texture2D" uid="uid://cvc10bv8ltb00" path="res://Sprites/Land/death_screen.png" id="2_6e1uj"]
 
 [node name="end screen" type="Node2D"]
 script = ExtResource("1_6e1uj")
