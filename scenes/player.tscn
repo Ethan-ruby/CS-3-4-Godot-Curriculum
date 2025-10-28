@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cqvpxnx2pwqhk"]
+[gd_scene load_steps=53 format=3 uid="uid://cqvpxnx2pwqhk"]
 
 [ext_resource type="Script" uid="uid://dbc6krbwjvop0" path="res://scripts/player.gd" id="1_4x8vn"]
 [ext_resource type="Texture2D" uid="uid://c1j65egvfiye4" path="res://assets/lpc_male_animations_2025-09-04T20-28-14/standard/idle.png" id="2_wn8rh"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bwd62n2s4k1j5" path="res://assets/point_light.webp" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://c3tla2pcnhcdt" path="res://Sprites/Npc/coin.png" id="6_fjrip"]
 [ext_resource type="Texture2D" uid="uid://dltpbu5q38d07" path="res://Sprites/Npc/New Piskel (4).png" id="6_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dmgh81d03yh73" path="res://Sprites/New Piskel (5).png" id="8_smehm"]
+[ext_resource type="PackedScene" uid="uid://dv0etkflsngnm" path="res://scenes/inventory.tscn" id="9_ur7pv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(28, 22.115385)
@@ -397,7 +399,7 @@ scale = Vector2(1.4701692, 1.4413793)
 text = "0"
 
 [node name="PointLight2D2" type="PointLight2D" parent="Coin"]
-position = Vector2(9.931061, 1.6551666)
+position = Vector2(0.551734, 1.6551666)
 scale = Vector2(0.55172414, 0.55172414)
 texture = ExtResource("4_dqkch")
 
@@ -407,5 +409,12 @@ scale = Vector2(1.515023, 2.476948)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="animation player"]
 shape = SubResource("CircleShape2D_y4r1p")
+
+[node name="NewPiskel(5)" type="Sprite2D" parent="."]
+position = Vector2(476, -343)
+texture = ExtResource("8_smehm")
+
+[node name="Inventory" parent="." instance=ExtResource("9_ur7pv")]
+reasources = Array[Resource]([])
 
 [connection signal="body_entered" from="animation player" to="." method="_on_animation_player_body_entered"]
