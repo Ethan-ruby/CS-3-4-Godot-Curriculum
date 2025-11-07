@@ -76,6 +76,8 @@ func _input(event: InputEvent) -> void:
 func _ready():
 	current_health = max_health
 
+	$Ersure.hide()
+
 	# Set collision layers (Layer 1 = player)
 	collision_layer = 1
 	collision_mask = 2 | 8  # Collide with enemies (layer 2) and XP drops (layer 8)
@@ -193,12 +195,15 @@ func calculate_xp_for_next_level() -> float:
 ## Handle player death
 ## Returns true when death is handled
 func die() -> bool:
-	print(character_name + " has died!")
-	player_died.emit()
-	# Disable player controls
-	set_physics_process(false)
-	# Hide or play death animation
-	visible = false
+#	print(character_name + " has died!")
+#	player_died.emit()
+#	# Disable player controls
+#	set_physics_process(false)
+#	# Hide or play death animation
+#	visible = false
+	$Ersure.show()
+	$"erasure timer".start()
+	$Ersure.play("basic")
 
 	return true
 
