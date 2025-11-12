@@ -224,4 +224,5 @@ func upgrade_health(amount: float) -> bool:
 ## Returns true on successful upgrade
 func upgrade_speed(amount: float) -> bool:
 	move_speed += amount
+	print("Speed increased by ", amount, "! New speed: ", move_speed)
 	return true
